@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 70%;
+    }
+    table,th,td {
+        border: 1px solid black;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 4px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    tr:nth-child(odd) {
+        background-color: #dcfce4
+    }
+
+    th {
+        background-color: #f6847c;
+        color: rgb(6, 5, 5);
+    }
+
+    body {
+        background-image: url('Background1.jpeg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 12px;
+        padding: 5px;
+        width: 100px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 2px;
+    }
+</style>
+<script src="controller.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Home</title>
+</head> 
+
+<body align="center">
+    <p>
+    <h1 style="font-family:verdana;color:rgb(26, 115, 249)">Make your Own Fixture</h1>
+    </p>
+    <table id="mastertable" align="center">
+        <tr>
+            <th width="50rem">Serial No.</th>
+            <th width="50rem">First Name</th>
+            <th width="50rem">Last Name</th>
+            <th width="50rem">Choose Rank</th>
+        </tr>
+    </table>
+    <p>
+        <button type="button" onclick="fnAddPlayer()">Add Player</button>
+        <!-- <button type="button" onclick="fnRankedPLayer()">Choose Ranked Player</button> -->
+        <button type="button" onclick="fnPrepare()">Make Fixture</button>
+        <button type="button" onclick="fnRefersh()">Reset</button>
+    </p>
+    <p id="abc">
+    <p>
+    <h2 style="font-family:verdana;color:rgb(26, 115, 249)">Fixture</h2>
+    </p>
+    <table id="fixture" align="center">
+        <!-- <tr>
+            <th id="header">Fixture Title</th>
+        </tr> -->
+    </table>
+    <button type="button" onclick="fnDownload()">Download</button>
+    </p>
+</body>
+
+</html>
