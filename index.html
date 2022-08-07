@@ -5,7 +5,10 @@
         border-collapse: collapse;
         width: 70%;
     }
-    table,th,td {
+
+    table,
+    th,
+    td {
         border: 1px solid black;
     }
 
@@ -48,10 +51,17 @@
         cursor: pointer;
         margin: 2px;
     }
+
+    caption {
+        display: table-caption;
+        text-align: left;
+    }
+
 </style>
 <script src="controller.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
 <head>
     <meta charset="utf-8">
@@ -59,11 +69,12 @@
     <title>Home</title>
 </head> 
 
-<body align="center">
+<body align="center" onload="onInit()">
     <p>
-    <h1 style="font-family:verdana;color:rgb(26, 115, 249)">Make your Own Fixture</h1>
+    <h1 style="font-family:verdana;color:rgb(26, 115, 249)">Knockout Tournament Draw Generator</h1>
     </p>
     <table id="mastertable" align="center">
+
         <tr>
             <th width="50rem">Serial No.</th>
             <th width="50rem">First Name</th>
@@ -74,20 +85,22 @@
     <p>
         <button type="button" onclick="fnAddPlayer()">Add Player</button>
         <!-- <button type="button" onclick="fnRankedPLayer()">Choose Ranked Player</button> -->
-        <button type="button" onclick="fnPrepare()">Make Fixture</button>
+        <button type="button" onclick="fnPrepare()">Draw Fixture</button>
+       <!--  <button type="button" onclick="fnOpenForm()">Open</button> -->
         <button type="button" onclick="fnRefersh()">Reset</button>
     </p>
-    <p id="abc">
-    <p>
-    <h2 style="font-family:verdana;color:rgb(26, 115, 249)">Fixture</h2>
-    </p>
-    <table id="fixture" align="center">
-        <!-- <tr>
+    <div class="fixture-table" id="myFixture" style="visibility: hidden">
+        <h2 style="font-family:verdana;color:rgb(26, 115, 249)">Fixture</h2>
+        </p>
+        <table id="fixture" align="center">
+            <caption id="caption" text-align="left">Fixture of:</caption>
+            <!-- <tr>
             <th id="header">Fixture Title</th>
         </tr> -->
-    </table>
-    <button type="button" onclick="fnDownload()">Download</button>
-    </p>
+        </table>
+        <button type="button" onclick="fnDownload()">Download</button>
+        </p>
+    </div>
 </body>
 
 </html>
