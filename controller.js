@@ -159,7 +159,7 @@ function fnPrepare() {
     //document.getElementById('header').setAttribute("colspan",extraColumn);
 }
 function fnDownload() {
-    html2canvas(document.getElementById('abc'), {
+    html2canvas(document.getElementById('fixture'), {
         onrendered: function (canvas) {
             var data = canvas.toDataURL();
             var docDefinition = {
