@@ -1,8 +1,6 @@
-var mDatabase = new Map();
-var count = 0;
-var result = [];
-var draw = [];
-var totalPlayer;
+function onInit () {
+    //document.getElementById("myFixture").style.visibility = "hidden";
+}
 function fnAddPlayer() {
     var cTable = document.getElementById("mastertable");
     count = cTable.rows.length;
@@ -58,6 +56,11 @@ function fnRefersh() {
 }
 
 function fnPrepare() {
+    var result = [];
+    var draw = [];
+    var totalPlayer;
+    var cTable = document.getElementById("mastertable");
+    count = cTable.rows.length;
     if (fnCheckRank()) {
         alert("Please Select your Ranked players correctly");
         return;
@@ -125,20 +128,32 @@ function fnPrepare() {
         result[totalPlayer / 2 - 1] = "BYE";
         difference--;
     }
+    var giveBye = 2;
+    while(difference>0) {
+        if (result[giveBye] === undefined) {
+            result[random] = "BYE";
+            difference--;
+        }
+        giveBye+=2;
+    }
     //Assign player randomly
     while (draw.length > 0) {
-        var random = Math.floor(Math.random() * (totalPlayer - 1 + 1) + 1);
+        var random = Math.floor(Math.random() * ((totalPlayer) - 1 + 1) + 1);
         if (result[random] === undefined) {
             result[random] = draw.pop();
         }
     }
+    // Flush previous table
+    
     //Preapre Fixture
     var fTable = document.getElementById("fixture");
     var match = 0;
-    for (var i = 1; i < result.length; i += 2) {
+    /* for (var i = 1; i <= totalPlayer; i ++) {
         if (result[i] === undefined) {
             result[i] = "BYE";
         }
+    } */
+    for (var i = 1; i <= totalPlayer; i += 2) {
         var cRow = fTable.insertRow(fTable.rows.length);
         var cell1 = cRow.insertCell(0);
         var cell2 = cRow.insertCell(1);
@@ -152,11 +167,7 @@ function fnPrepare() {
         cell1.appendChild(s);
         cell2.appendChild(x);
     }
-    var extraColumn = Math.floor(totalPlayer/4);
-    for(var i =0; i < extraColumn;i++){
-        fnCreateColumns(fTable);
-    };
-    //document.getElementById('header').setAttribute("colspan",extraColumn);
+    document.getElementById("myFixture").style.visibility = "visible";
 }
 function fnDownload() {
     html2canvas(document.getElementById('fixture'), {
@@ -171,16 +182,4 @@ function fnDownload() {
             pdfMake.createPdf(docDefinition).download("Fixture.pdf");
         }
     });
-}
-
-function fnCreateColumns(fTable) {
-    for (i = 0; i < fTable.rows.length; i++) {
-        createCell(fTable.rows[i].insertCell(fTable.rows[i].cells.length), 'col');
-    }
-}
-
-function createCell(cell, style) {
-    var div = document.createElement('div');
-    cell.style.width = "100px";
-    cell.appendChild(div);
 }
