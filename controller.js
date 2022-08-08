@@ -131,7 +131,7 @@ function fnPrepare() {
     var giveBye = 2;
     while (difference > 0) {
         if (result[giveBye] === undefined) {
-            result[random] = "BYE";
+            result[giveBye] = "BYE";
             difference--;
         }
         giveBye += 2;
