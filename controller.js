@@ -1,4 +1,4 @@
-function onInit () {
+function onInit() {
     //document.getElementById("myFixture").style.visibility = "hidden";
 }
 function fnAddPlayer() {
@@ -129,12 +129,12 @@ function fnPrepare() {
         difference--;
     }
     var giveBye = 2;
-    while(difference>0) {
+    while (difference > 0) {
         if (result[giveBye] === undefined) {
             result[random] = "BYE";
             difference--;
         }
-        giveBye+=2;
+        giveBye += 2;
     }
     //Assign player randomly
     while (draw.length > 0) {
@@ -144,15 +144,15 @@ function fnPrepare() {
         }
     }
     // Flush previous table
-    
+
     //Preapre Fixture
     var fTable = document.getElementById("fixture");
     var match = 0;
-    /* for (var i = 1; i <= totalPlayer; i ++) {
+    for (var i = 1; i <= totalPlayer; i ++) {
         if (result[i] === undefined) {
             result[i] = "BYE";
         }
-    } */
+    }
     for (var i = 1; i <= totalPlayer; i += 2) {
         var cRow = fTable.insertRow(fTable.rows.length);
         var cell1 = cRow.insertCell(0);
