@@ -34,7 +34,9 @@
     body {
         background-image: url('Background1.jpeg');
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-attachment: fixed;
+        background-size: cover;
+
     }
 
     button {
@@ -56,7 +58,6 @@
         display: table-caption;
         text-align: left;
     }
-
 </style>
 <script src="controller.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -86,7 +87,7 @@
         <button type="button" onclick="fnAddPlayer()">Add Player</button>
         <!-- <button type="button" onclick="fnRankedPLayer()">Choose Ranked Player</button> -->
         <button type="button" onclick="fnPrepare()">Draw Fixture</button>
-       <!--  <button type="button" onclick="fnOpenForm()">Open</button> -->
+        <!--  <button type="button" onclick="fnOpenForm()">Open</button> -->
         <button type="button" onclick="fnRefersh()">Reset</button>
     </p>
     <div class="fixture-table" id="myFixture" style="visibility: hidden">
